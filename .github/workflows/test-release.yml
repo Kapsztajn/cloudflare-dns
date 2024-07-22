@@ -41,8 +41,9 @@ jobs:
             new_version="$major.$((minor + 1)).0"
           fi
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
-          echo $latest_tag
+          echo "New release: $new_version"
           echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
+          echo "Latest tag: $latest_tag"
 
   release:
     name: Release pushed tag
