@@ -40,9 +40,9 @@ jobs:
           else
             new_version="$major.$((minor + 1)).0"
           fi
-          echo "latest_tag=$latest_tag" >> GITHUB_OUTPUT
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
           echo $latest_tag
+          echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
 
   release:
     name: Release pushed tag
@@ -60,4 +60,4 @@ jobs:
               --generate-notes \
               --title 'Release ${{needs.get-tag.outputs.new_version}}' \
               --target main \
-              --notes-start-tag '${{needs.get-tag.outputs.latest_tag}}''
+              --notes-start-tag '${{needs.get-tag.outputs.latest_tag}}'
