@@ -12,8 +12,8 @@ jobs:
 
   get-tag:
     name: Get latest tag number
-    needs: deploy
     runs-on: ubuntu-latest
+    if: always()
     outputs:
       new_version: ${{ steps.latest-tag.outputs.new_version }}
       latest_tag: ${{ steps.latest-tag.outputs.latest_tag }}
