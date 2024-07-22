@@ -13,7 +13,7 @@ jobs:
   get-tag:
     name: Get latest tag number
     needs: deploy
-    if: always() && needs.deploy.result == 'success' && github.ref_name == 'master'
+    if: always()
     runs-on: ubuntu-latest
     outputs:
       new_version: ${{ steps.latest-tag.outputs.new_version }}
@@ -48,7 +48,7 @@ jobs:
   release:
     name: Release pushed tag
     needs: get-tag
-    if: always() && needs.get-tag.result == 'success' && github.ref_name == 'master'
+    if: always() && needs.get-tag.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Create release
