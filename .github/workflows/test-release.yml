@@ -60,4 +60,4 @@ jobs:
               --generate-notes \
               --title 'Release ${{needs.get-tag.outputs.new_version}}' \
               --target main \
-              --notes-start-tag '${{needs.get-tag.outputs.latest_tag}}'
+              --notes-start-tag ${{needs.get-tag.outputs.latest_tag}}
